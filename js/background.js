@@ -1,9 +1,7 @@
 /* options */
 var options = {
   gmail_url: 'https://gmail.com',
-  gmail_atom_feed: 'https://mail.google.com/mail/feed/atom',
-  check_cycle: (60 * localStorage.gml_seconds) /* seconds */
-};
+}
 
 /* on icon click, launch gmail.com */
 chrome.browserAction.onClicked.addListener(function (tab) {
@@ -25,4 +23,15 @@ chrome.browserAction.onClicked.addListener(function (tab) {
           url: options.gmail_url
       });
     });
+});
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+  if (request.storage) {
+    if (typeof request.value != 'undefined') {
+      localStorage[request.storage] = request.value;
+    }
+    sendResponse({storage: localStorage[request.storage]});
+  } else {
+    sendResponse({});
+  }
 });

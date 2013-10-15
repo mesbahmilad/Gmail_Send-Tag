@@ -8,17 +8,9 @@ function loadSettings()
   };
   document.querySelectorAll('input[name="icon"]')[parseIcon[localStorage.gml_icon]].checked = true;
 
-  /* load seconds option */
-  var parseSeconds = {
-    60: 0,
-    300: 1,
-    900: 2,
-    1800: 3,
-    3600: 4,
-    7200: 5,
-    14400: 6
-  };
-  document.querySelectorAll('select[name="seconds"]')[0].selectedIndex = parseSeconds[localStorage.gml_seconds];
+  document.querySelectorAll('input[name="label"]')[0].value = localStorage.label;
+
+  console.log(localStorage.label)
 }
 
 
@@ -28,8 +20,14 @@ function saveSettings()
   /* grab the selected values */
   var selected_icon = document.querySelectorAll('input[name="icon"]:checked')[0].value;
 
+
+  /* grab the selected values */
+  var label = document.querySelectorAll('input[name="label"]')[0].value;
+
   /* store with localStorage */
   localStorage.gml_icon = selected_icon;
+  localStorage.label = label;
+  console.log(localStorage.label)
 
   /* alert the user */
   document.querySelectorAll('#alert')[0].innerHTML = "Saved! This window will auto-close in 2 seconds.";
