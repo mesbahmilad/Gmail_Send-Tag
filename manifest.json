@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Gmail Send+Tag",
-  "description": "Adds a button to the send email window to send & follow the message.",
+  "description": "This is a simple extension to help you quickly tag emails you're sending out with your most commonly used label.",
   "version": "0.1.3",
 
   "background": {
