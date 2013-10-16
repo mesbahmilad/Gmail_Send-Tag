@@ -3,7 +3,7 @@
 
   "name": "Send+Tag for Gmail",
   "description": "This is a simple extension to help you quickly tag emails you're sending out with your most commonly used label.",
-  "version": "0.1.5",
+  "version": "0.1.7",
 
   "background": {
     "page": "background.html"
