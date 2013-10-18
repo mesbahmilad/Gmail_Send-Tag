@@ -27,7 +27,10 @@ function send_and_follow(e)
 {
 	container = e.data.send_btn.closest("div").closest("table").closest("div").closest("table").closest("div");
 	form = $("form", container);
-	form.append('<input type="hidden" name="acn" value="'+options.label+'">')
+	var labels = options.label.split(",");
+	$.each(labels, function( index, value ) {
+  		form.append('<input type="hidden" name="acn" value="'+value+'">')
+	});
 	e.data.send_btn.click();
 }
 
